@@ -1,0 +1,35 @@
+﻿@model Vidly.ViewModels.NewRentalViewModel
+@{
+    ViewBag.Title = "create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>create</h2>
+<div>
+    <div class="row" style="margin:auto;">
+        <div class="col-8 " style="margin:auto;">
+            <form method="post">
+
+
+                <div class="form-group">
+                    @Html.LabelFor(n => n.rental.Customer_Id)
+                    @Html.DropDownListFor(n => n.rental.Customer_Id, Model.customers,"Select a customer", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(n => n.rental.Customer_Id, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(n => n.rental.Movie_Id)
+                    @Html.DropDownListFor(n => n.rental.Movie_Id, Model.movies,"Select a movie", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(n => n.rental.Movie_Id, "", new { @class = "text-danger" })
+                </div>
+
+                <input type="submit" value="save" class="form-control btn-success" />
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

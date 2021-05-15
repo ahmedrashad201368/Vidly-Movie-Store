@@ -1,0 +1,30 @@
+﻿@model List<Vidly.Models.Rental>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div>
+    @Html.ActionLink("New Rental", "create", "Rentals", new { @class = "btn btn-primary" })
+
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Movie</th>
+            <th>Customer</th>
+            <th>DateRented</th>
+            <th>Returned</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Movie.Name</td>
+                <td>@item.Customer.Name</td>
+                <td>@item.DateRented</td>
+                <td>@item.dateReturned</td>
+            </tr>
+        }
+    </table>
+</div>
